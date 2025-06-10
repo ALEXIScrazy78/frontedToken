@@ -1,13 +1,167 @@
+/* Variables CSS para colores */
+:root {
+  --primary-color: #054372; /* Un púrpura oscuro */
+  --primary-light: #4031a5; /* Un púrpura más claro para hover */
+  --secondary-color: #007bff; /* Azul vibrante, si lo necesitas */
+  --background-color: #f0f2f5; /* Gris claro para el fondo */
+  --card-background: #ffffff; /* Blanco para las tarjetas */
+  --text-color: #333; /* Texto oscuro principal */
+  --text-light: #666; /* Texto secundario/placeholder */
+  --border-color: #ddd; /* Color de borde para inputs/cards */
+  --success-color: #28a745; /* Verde para mensajes de éxito */
+  --error-color: #dc3545; /* Rojo para mensajes de error */
+  --shadow-color: rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Base de estilos */
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Alinea arriba para evitar centrado vertical excesivo */
+  min-height: 100vh; /* Altura mínima de la vista */
+  padding: 40px 20px; /* Espaciado general */
+  box-sizing: border-box; /* Incluir padding en el tamaño total */
+}
+
+/* Estilos de Contenedor de la Aplicación */
+.app-container {
+  background-color: var(--card-background);
+  border-radius: 12px;
+  box-shadow: 0 8px 25px var(--shadow-color); /* Sombra más pronunciada */
+  padding: 40px;
+  width: 100%;
+  max-width: 500px; /* Ancho máximo para el contenedor principal */
+  box-sizing: border-box;
+  text-align: center;
+}
+
+h1, h2 {
+  color: var(--primary-color);
+  margin-bottom: 25px;
+  font-weight: 600; /* Un poco más de peso */
+}
+
+/* Estilos de Formulario */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Espacio entre elementos del formulario */
+  margin-top: 30px;
+}
+
+form > div {
+  text-align: left; /* Alinea etiquetas y campos a la izquierda */
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: var(--text-light);
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(106, 5, 114, 0.2); /* Sombra de foco */
+  outline: none;
+}
+
+/* Estilos de Botones */
+button {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  margin-top: 10px; /* Espacio superior para botones */
+}
+
+button:hover {
+  background-color: var(--primary-light);
+  transform: translateY(-2px); /* Efecto de "levantamiento" */
+  box-shadow: 0 4px 10px var(--shadow-color);
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+button + button { /* Espacio entre botones adyacentes */
+  margin-left: 10px;
+}
+
+/* Estilos de Mensajes */
+.message {
+  margin-top: 20px;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.message.success {
+  background-color: #d4edda;
+  color: var(--success-color);
+  border: 1px solid var(--success-color);
+}
+
+.message.error {
+  background-color: #f8d7da;
+  color: var(--error-color);
+  border: 1px solid var(--error-color);
+}
+
+/* Estilos para el área protegida */
+.protected-data {
+  margin-top: 30px;
+  padding: 25px;
+  background-color: var(--background-color);
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  text-align: left;
+}
+
+.protected-data p {
+  margin-bottom: 10px;
+  color: var(--text-color);
+  font-size: 1rem;
+}
+
+.protected-data button {
+  width: auto; /* Ajusta el ancho del botón de logout */
+  margin-top: 20px;
+  background-color: var(--error-color); /* Color rojo para el botón de logout */
+}
+
+.protected-data button:hover {
+  background-color: #c82333; /* Rojo más oscuro en hover */
 }
